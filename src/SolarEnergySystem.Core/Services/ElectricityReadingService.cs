@@ -43,7 +43,7 @@ namespace SolarEnergySystem.Core.Services
                 case PanelType.Limited:
                 {
                     var days = lastReading == null ? 1 : (date - lastReading.ReadingDateTime).Days;
-                    if (days < 1) return ServiceResult<ElectricityReading>.ErrorResult("El registro es cada hora!");
+                    if (days < 1) return ServiceResult<ElectricityReading>.ErrorResult("El registro es cada dia!");
                     var newReading = new ElectricityReading()
                     {
                         KiloWatt = value,
@@ -55,8 +55,8 @@ namespace SolarEnergySystem.Core.Services
                 }
                 case PanelType.Ultimate:
                 {
-                    var days = lastReading == null ? 1 : (date - lastReading.ReadingDateTime).Minutes;
-                    if (days < 1) return ServiceResult<ElectricityReading>.ErrorResult("El registro es cada hora!");
+                    var minutes = lastReading == null ? 1 : (date - lastReading.ReadingDateTime).Minutes;
+                    if (minutes < 1) return ServiceResult<ElectricityReading>.ErrorResult("El registro es cada minuto!");
                     var newReading = new ElectricityReading()
                     {
                         KiloWatt = value,

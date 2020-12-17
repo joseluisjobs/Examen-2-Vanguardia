@@ -29,10 +29,9 @@ namespace SolarEnergySystem.API.Controllers
                 return BadRequest(serviceResult.Error);
             var result = new ElectricityReading
             {
-                Id = serviceResult.Result.Id,
                 KiloWatt = serviceResult.Result.KiloWatt,
                 ReadingDateTime = serviceResult.Result.ReadingDateTime,
-                PanelId = serviceResult.Result.PanelId
+                PanelId = reading.PanelId
             };
             return Ok(result);
         }
