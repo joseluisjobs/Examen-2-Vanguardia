@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SolarEnergySystem.Core.DTO;
+using SolarEnergySystem.Core.Entities;
 using SolarEnergySystem.Core.Interfaces;
 
 namespace SolarEnergySystem.Infrastructure.Repositories
 {
-    public class EntityFrameworkRepository<TEntity, TKey> : IRepository<TEntity, TKey>
+    public class EntityFrameworkRepository<TEntity, TKey> : IRepository<TEntity, TKey> 
         where TEntity : BaseEntity<TKey>
     {
         private readonly SolarEnergySystemDatabaseContext _context;
